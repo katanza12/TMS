@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+$fontFamily: 'Montserrat', sans-serif;
+$fontSize: 13px;
+$fontSizeSmall: 10px;
+$textColor: #AAAAAA;
+
+$borderRadius: 5px;
+$borderColor: #878787;
+
+$sidebarBackgroundColor: #2658DE;
+$sidebarBorderColor: #878787;
+$sidebarSectionTextColor: #b1bec6;
+$sidebarMenuTextColor: #e2e7e7;
+$sidebarHoverBackgroundColor: #b626de;
+$sidebarHoverTextColor: #d8bdf0;
+
+$taskBackgroundColor: #e2e7e7;
+$taskTitleColor: #2658DE;
+$taskMinHeight: 15vh;
+
+$taskStatusUnopen: #878787;
+$taskStatusInProgress: #ffa500;
+$taskStatusCompleted: #008000;

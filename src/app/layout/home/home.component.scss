@@ -1,0 +1,37 @@
+@use '../../../assets/styles/variables.scss' as v;
+
+.home-main {
+  display: flex;
+  flex-direction: row;
+}
+
+.home-sidebar {
+  width: 15vw;
+}
+
+.home-tasks {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  column-gap: 2.5rem;
+  padding: 5rem;
+  width: 100%;
+
+  .status-div {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+    padding: 1rem;
+    border: 1px solid v.$borderColor;
+    border-radius: v.$borderRadius;
+
+    .status-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      column-gap: 1rem;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="sidebar-main">
+  <div class="section">
+    <div class="logo-title">
+      <img src="assets/images/logo.png" alt="logo" />
+      <span>Task Management System</span>
+    </div>
+
+    <p-menu #menu [model]="menuItems">
+      <ng-template #submenuheader let-item>
+        <div class="submenu-header">
+          <span>{{ item.label }}</span>
+          <i [class]="item.icon" class="clickable" (click)="openData(item.id)"></i>
+        </div>
+      </ng-template>
+    </p-menu>
+
+  </div>
+
+  <div class="section">
+    <div class="footer">
+      <p-avatar label="{{avatarLabel}}" size="large" shape="circle"
+        [style]="{'background-color': avatarBackground}"></p-avatar>
+    </div>
+  </div>
+</div>
+
+<p-dialog header="{{popupDataTitle}}" [modal]="true" [(visible)]="showPopupData" [style]="{ width: '65rem' }">
+  <app-data></app-data>
+</p-dialog>

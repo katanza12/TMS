@@ -1,0 +1,163 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "Roberto",
+      "lastName": "Catania",
+      "email": "aaa",
+      "password": "bbb",
+      "background": "#A2B4C9"
+    },
+    {
+      "id": "2",
+      "firstName": "Mario",
+      "lastName": "Rossi",
+      "email": "mario.rossi@email.com",
+      "password": "password123",
+      "background": "#020501"
+    },
+    {
+      "id": "3",
+      "firstName": "Luigi",
+      "lastName": "Bianchi",
+      "email": "luigi.bianchi@email.com",
+      "password": "password123",
+      "background": "#2a9c9c"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "1",
+      "category": "1",
+      "title": "TMS",
+      "description": "The new Task Management System",
+      "status": "2",
+      "users": [
+        "1",
+        "2"
+      ]
+    },
+    {
+      "id": "2",
+      "category": "2",
+      "title": "React",
+      "description": "Learn React",
+      "status": "1",
+      "users": [
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "3",
+      "category": "2",
+      "title": "Pl/Sql",
+      "description": "Learn procedure language for SQL",
+      "status": "3",
+      "users": [
+        "2",
+        "3"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Prova",
+      "description": "Task di prova per l'inserimento",
+      "status": "1",
+      "category": "1",
+      "users": [
+        "1"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Task compeltato",
+      "description": "Prova insert task completato",
+      "status": "3",
+      "category": "1",
+      "users": [
+        "1",
+        "3"
+      ]
+    },
+    {
+      "id": "8",
+      "title": "A caso",
+      "description": "Testo generale sadasd",
+      "status": "3",
+      "category": "1",
+      "users": [
+        "1"
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Prova invalid",
+      "description": "wqeqfdwqdqw",
+      "status": "1",
+      "category": "2",
+      "users": [
+        "1"
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Prova ins",
+      "description": "safsafafssafsa",
+      "status": "2",
+      "category": "2",
+      "users": [
+        "1"
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Prova ins",
+      "description": "sadasda",
+      "status": "2",
+      "category": "2",
+      "users": [
+        "1"
+      ]
+    }
+  ],
+  "status": [
+    {
+      "id": "1",
+      "description": "Da iniziare",
+      "icon": "fas fa-hourglass-half",
+      "sort": 0,
+      "color": "#c4c3ab"
+    },
+    {
+      "id": "2",
+      "description": "In corso",
+      "icon": "fas fa-person-running",
+      "sort": 10,
+      "color": "#ffa500"
+    },
+    {
+      "id": "3",
+      "description": "Terminato",
+      "icon": "fas fa-flag-checkered",
+      "sort": 20,
+      "color": "#008000"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "description": "Progetti",
+      "icon": "fas fa-diagram-project",
+      "sort": 0,
+      "color": ""
+    },
+    {
+      "id": "2",
+      "description": "Studio",
+      "icon": "fas fa-graduation-cap",
+      "sort": 10,
+      "color": ""
+    }
+  ]
+}

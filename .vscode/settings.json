@@ -1,0 +1,34 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#e6acdc",
+    "activityBar.background": "#e6acdc",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#6c7a25",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202b99",
+    "sash.hoverBorder": "#e6acdc",
+    "statusBar.background": "#da85cc",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#ce5ebc",
+    "statusBarItem.remoteBackground": "#da85cc",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#da85cc",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#da85cc99",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#da85cc",
+  "angular-schematics.schematicsDefaultOptions": {
+    "angular-component": {
+      "skipChangeDetectionOnPush": true,
+      "skipDisplayBlock": true,
+      "ngOnInit": true
+    },
+    "angular-*": {
+      "externalTemplate": true,
+      "style": "scss",
+      "stylesArray": true
+    }
+  }
+}

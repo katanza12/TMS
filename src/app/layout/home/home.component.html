@@ -1,0 +1,25 @@
+<div class="home-main">
+  <div class="home-sidebar">
+    <app-sidebar></app-sidebar>
+  </div>
+  <div class="home-tasks">
+    @for(statusTask of taskListByStatus; track statusTask.status.id) {
+    @if(statusTask.tasks.length > 0) {
+    <div class="status-div">
+      <div class="status-header">
+        <span>{{statusTask.status.description}}</span>
+        <p-button icon="fas fa-calendar-plus" [rounded]="true" [text]="true" [raised]="true"
+          (click)="addTask(statusTask.status.id)" size="small"></p-button>
+      </div>
+      @for(task of statusTask.tasks; track task.id) {
+      <app-task [taskId]="task.id"></app-task>
+      }
+
+    </div>
+    }
+    }
+
+    <app-task [taskId]="0"></app-task>
+
+  </div>
+</div>

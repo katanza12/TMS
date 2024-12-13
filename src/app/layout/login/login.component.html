@@ -1,0 +1,29 @@
+<div class="login-main">
+  <p-card [style]="{ width: '35rem', overflow: 'hidden' }">
+    <ng-template pTemplate="header">
+      <div class="login-header">
+        <img src="assets/images/logo.png" alt="logo" class="logo" />
+        <span class="login-title">Task<br />Management<br />System</span>
+      </div>
+    </ng-template>
+    <ng-template pTemplate="title"> Accesso </ng-template>
+    <ng-template pTemplate="subtitle"> Inserisci i tuoi dati per accedere </ng-template>
+
+    <div class="login-items">
+      <p-floatlabel>
+        <input id="txtUsername" pInputText [(ngModel)]="username" />
+        <label for="txtUsername">Username</label>
+      </p-floatlabel>
+      <p-floatlabel>
+        <input id="txtPassword" pInputText [(ngModel)]="password" type="password" />
+        <label for="txtPassword">Password</label>
+      </p-floatlabel>
+    </div>
+
+    <ng-template pTemplate="footer">
+      <div class="login-footer">
+        <p-button label="Login" class="full-width" styleClass="full-width" (click)="doLogin()"></p-button>
+      </div>
+    </ng-template>
+  </p-card>
+</div>

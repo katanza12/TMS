@@ -1,0 +1,95 @@
+<p-table [value]="dataList" dataKey="id" editMode="row">
+  <ng-template #header>
+    <tr>
+      <th>Id</th>
+      <th>Descrizione</th>
+      <th>Icona</th>
+      @if (dataType == dataEnum.Status) {
+      <th>Colore</th>
+      }
+      <th>Ordine</th>
+      <th></th>
+    </tr>
+  </ng-template>
+
+  <ng-template #body let-data let-editing="editing" let-ri="rowIndex">
+    <tr [pEditableRow]="data">
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-inputnumber inputId="withoutgrouping" [useGrouping]="false" [(ngModel)]="data.id"
+              [inputStyle]="{ width: '3rem' }" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{data.id}}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <input type="text" pInputText [(ngModel)]="data.description" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{data.description}}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <div class="data-table-icon">
+              <input type="text" pInputText [(ngModel)]="data.icon" />
+              <i class="{{iconVisToData(data.icon)}}" pTooltip="{{iconDataToVis(data.icon)}}"></i>
+            </div>
+          </ng-template>
+          <ng-template pTemplate="output">
+            <i class="{{data.icon}}" pTooltip="{{iconDataToVis(data.icon)}}"></i>
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      @if (dataType == dataEnum.Status) {
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-colorpicker [(ngModel)]="data.color" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            <div class="data-dot " [ngStyle]="{'background': data.color}" pTooltip="{{data.color}}"></div>
+          </ng-template>
+        </p-cellEditor>
+      </td>
+      }
+
+      <td>
+        <p-cellEditor>
+          <ng-template pTemplate="input">
+            <p-inputnumber inputId="withoutgrouping" [useGrouping]="false" [(ngModel)]="data.sort"
+              [inputStyle]="{ width: '3rem' }" />
+          </ng-template>
+          <ng-template pTemplate="output">
+            {{data.sort}}
+          </ng-template>
+        </p-cellEditor>
+      </td>
+
+      <td>
+        <div class="data-table-buttons">
+          @if(!editing) {
+          <p-button icon="fas fa-pen-to-square" (click)="onRowEditInit(data)" pTooltip="Modifica" [rounded]="true"
+            [raised]="true" severity="help" pInitEditableRow></p-button>
+          }
+          @else {
+          <p-button icon="fas fa-check" (click)="onRowEditSave(data)" pTooltip="Salva" [rounded]="true" [raised]="true"
+            severity="success" pSaveEditableRow></p-button>
+          <p-button icon="fas fa-xmark" (click)="onRowEditCancel(data, ri)" pTooltip="Annulla" [rounded]="true"
+            [raised]="true" severity="danger" pCancelEditableRow></p-button>
+          }
+        </div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

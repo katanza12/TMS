@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'assets/styles/variables.scss' as v;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: v.$fontFamily;
+  font-size: v.$fontSize;
+  color: v.$textColor;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.col-center {
+  text-align: center !important;
+}
+
+
+// Override PrimeNG styles
+p-menu {
+
+  .p-menu,
+  .p-menu-item-content,
+  .p-menu-item-icon {
+    background: transparent;
+    color: v.$sidebarMenuTextColor;
+    border: 0;
+  }
+
+  .p-menu-item {
+    padding-left: 1rem;
+  }
+
+  .p-menu-submenu-label {
+    color: v.$sidebarSectionTextColor;
+    font-style: italic;
+  }
+
+  .p-menu-item:not(.p-disabled) .p-menu-item-content:hover,
+  .p-menu-item:not(.p-disabled) .p-menu-item-content:hover .p-menu-item-icon {
+    background: v.$sidebarHoverBackgroundColor;
+    color: v.$sidebarHoverTextColor;
+  }
+}

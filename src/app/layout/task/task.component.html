@@ -1,0 +1,124 @@
+@if (showMode == showModeEnum.VIEW) {
+<div class="task-main">
+  <!--[ngClass]="getBkgClass()"-->
+  <div class="color-status" [ngStyle]="{'background': statusColor}"></div>
+  <div class="task-body">
+    @if (task) {
+    <div class="task-title">
+      <span>{{task.title}}</span>
+      <i class="{{task.categoryExtend.icon}}" pTooltip="{{task.categoryExtend.description}}"></i>
+    </div>
+    <p class="task-details">{{task.description}}</p>
+    <!--[ngClass]="getTxtClass()"-->
+    <div class="task-status" [ngStyle]="{'color': statusColor}">
+      <i class="{{task.statusExtend.icon}}"></i>
+      <span>{{task.statusExtend.description}}</span>
+    </div>
+    <div class="footer">
+      <div class="task-command ">
+        <i class="fa-solid fa-pen-to-square clickable" (click)="editTask(task)"></i>
+        <i class="fa-solid fa-trash clickable" (click)="deleteTask($event, task)"></i>
+      </div>
+      <div class="user-list">
+        @for (userAvatar of userAvatarList; track userAvatar.id) {
+        <p-avatar label="{{userAvatar.label}}" shape="circle" class="overlap"
+          [style]="{'background-color': userAvatar.background}"></p-avatar>
+        }
+      </div>
+    </div>
+    }
+    @else {
+    <p-skeleton class="task-title skeleton-item" [dt]="customSkeleton" />
+    <p-skeleton class="task-details skeleton-item" [dt]="customSkeleton" />
+    <p-skeleton class="task-status skeleton-item" [dt]="customSkeleton" />
+    <div class="user-list">
+      <p-skeleton shape="circle" size="3rem" class="skeleton-item" [dt]="customSkeleton" />
+    </div>
+    }
+  </div>
+</div>
+<p-confirmpopup />
+}
+
+<p-dialog header="{{dialogTitle}}" [modal]="true" appendTo="body" [(visible)]="showDialog" [style]="{ width: '80rem' }"
+  (onHide)="closeDialog()">
+  <div class="new-task-main">
+    <div class="new-task-row">
+      <p-inputgroup>
+        <p-inputgroup-addon>
+          <i class="fa-solid fa-heading"></i>
+        </p-inputgroup-addon>
+        <input pInputText [(ngModel)]="newTask.title" placeholder="Titolo" id="txtTitle" />
+      </p-inputgroup>
+
+      <p-inputgroup>
+        <p-inputgroup-addon>
+          <i class="fa-regular fa-file-lines"></i>
+        </p-inputgroup-addon>
+        <!--<input pInputText [(ngModel)]="newTask.description" placeholder="Contenuto" />-->
+        <textarea class="full-width" rows="1" pInputText [(ngModel)]="newTask.description" placeholder="Contenuto"
+          id="txtDescription"></textarea>
+      </p-inputgroup>
+    </div>
+
+    <div class="new-task-row">
+      <p-inputgroup>
+        <p-inputgroup-addon>
+          <i class="fa-solid fa-icons"></i>
+        </p-inputgroup-addon>
+        <p-select pInputText [options]="categoryList" [(ngModel)]="newTask.category" optionLabel="description"
+          optionValue="id" appendTo="body" placeholder="Seleziona una categoria" id="cmbCategory">
+          <ng-template #selectedItem let-selectedOption>
+            <div class="select-item-icon-text">
+              <i [class]="selectedOption.icon"></i>
+              <span>{{selectedOption.description}}</span>
+            </div>
+          </ng-template>
+          <ng-template #item let-category>
+            <div class="select-item-icon-text">
+              <i [class]="category.icon"></i>
+              <span>{{category.description}}</span>
+            </div>
+          </ng-template>
+        </p-select>
+      </p-inputgroup>
+
+      <p-inputgroup>
+        <p-inputgroup-addon>
+          <i class="fa-solid fa-spinner"></i>
+        </p-inputgroup-addon>
+        <p-select pInputText [options]="statusList" [(ngModel)]="newTask.status" optionLabel="description"
+          optionValue="id" appendTo="body" placeholder="Seleziona uno stato" id="cmbStatus">
+          <ng-template #selectedItem let-selectedOption>
+            <div class="select-item-icon-text" [ngStyle]="{'color': selectedOption.color}">
+              <i [class]="selectedOption.icon"></i>
+              <span>{{selectedOption.description}}</span>
+            </div>
+          </ng-template>
+          <ng-template #item let-status>
+            <div class="select-item-icon-text" [ngStyle]="{'color': status.color}">
+              <i [class]="status.icon"></i>
+              <span>{{status.description}}</span>
+            </div>
+          </ng-template>
+        </p-select>
+      </p-inputgroup>
+    </div>
+
+    <div class="select-users">
+      <span>Utenti coinvolti</span>
+      <p-picklist [source]="userListAvailable" [target]="userListToAdd" [dragdrop]="true" [responsive]="true"
+        [sourceStyle]="{ height: '30rem' }" [targetStyle]="{ height: '30rem' }" breakpoint="1400px"
+        [showSourceControls]="false" [showTargetControls]="false">
+        <ng-template let-item pTemplate="item">
+          {{ item.firstName + " " + item.lastName }}
+        </ng-template>
+      </p-picklist>
+    </div>
+
+    <div class="new-task-footer">
+      <p-button label="Annulla" icon="fas fa-xmark" iconPos="right" severity="secondary" (click)="closeDialog()" />
+      <p-button label="Salva" icon="fas fa-floppy-disk" iconPos="right" severity="success" (click)="saveTask()" />
+    </div>
+  </div>
+</p-dialog>
